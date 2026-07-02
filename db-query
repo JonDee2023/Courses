@@ -1,0 +1,139 @@
+WORKERS' TRAINING COURSES
+
+
+CREATE TABLE users (
+id VARCHAR(255) PRIMARY KEY NOT NULL,
+firstname VARCHAR(255) NOT NULL,
+lastname VARCHAR(255) NOT NULL,
+sex VARCHAR(20) NOT NULL,
+phonenum VARCHAR(15) NOT NULL,
+email VARCHAR(255) NOT NULL,
+unit TEXT NOT NULL,
+dob DATE NOT NULL,
+date_saved DATE NOT NULL,
+induction_date DATE NULL,
+role role default 'Enrolee',
+password VARCHAR(255) NOT NULL,
+faith_testimony TEXT NULL,
+created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP);
+
+create type role as enum('Enrolee', 'Officer', 'Admin');
+
+alter table users 
+add column role role default 'Enrolee';
+
+alter table users
+add column date_saved date null;
+
+alter table users
+add column faith_testimony TEXT NULL;
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+CREATE TABLE user_logins(
+login_id INT PRIMARY KEY NOT NULL,
+user_id VARCHAR(150) NOT NULL,
+login_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+logout_at TIMESTAMP DEFAULT NULL,
+FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE unit (
+
+    unit_id SERIAL PRIMARY KEY,
+
+    unit_name TEXT
+
+);
+
+
+
+INSERT INTO unit (unit_name)
+VALUES
+('Children'),
+('Choir'),
+('Drama'),
+('Evangelism'),
+('Ushering'),
+('Prayer'),
+('Sunday School'),
+('Sanctuary'),
+('Media'),
+('Home Cell'),
+('Security'),
+('Protocol'),
+('Welfare'),
+('Projects'),
+('Workers Development'),
+('No unit');
+
+alter database caclha_workers_training
+rename to caclha_cwd;
+
+alter table users
+alter column unit type TEXT;
+
+
+
+
+alter table users
+alter column id type VARCHAR(255);
+
+
+create table courses(course_id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+course_title VARCHAR(255),
+course_desc TEXT NULL,
+course_modules VARCHAR(15),
+recomm_duration VARCHAR(30),
+instructors VARCHAR(255) NULL,
+fee VARCHAR(10) DEFAULT 'Free');
+
+INSERT INTO courses (course_title, course_desc, course_modules, recomm_duration, instructors, fee) 
+VALUES(
+('FAITHFUL SERVICE 1'),
+NULL,
+('3 modules'),
+('6 hours'),
+('aoekebaf@yahoo.com'),
+('Free'));
+
+INSERT INTO courses (course_title, course_desc, course_modules, recomm_duration, instructors, fee) 
+VALUES(
+('FAITHFUL SERVICE 2'),
+NULL,
+('4 modules'),
+('7 hours'),
+('aoekebaf@yahoo.com'),
+('Free'));
+
+INSERT INTO courses (course_title, course_desc, course_modules, recomm_duration, instructors, fee) 
+VALUES(
+('KINGDOM AGENDA'),
+NULL,
+('5 modules'),
+('6 hours'),
+('aoekebaf@yahoo.com'),
+('Free'));
+
+
+
+alter table courses
+rename column instuctors to instructors;
+
+create extension if not exists pgcrypto;
+
+create table reg_courses(reg_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+course_id INT NOT NULL REFERENCES courses(course_id) ON DELETE CASCADE,
+enrolee_id VARCHAR(25) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+date_reg TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+start_date TIMESTAMPTZ NULL,
+progress VARCHAR(10),
+date_completed TIMESTAMPTZ NULL
+);
+
+CREATE TABLE ongoing_coursesstart_date TIMESTAMPTZ NULL,
+date_completed TIMESTAMPTZ NULL)
+
+
