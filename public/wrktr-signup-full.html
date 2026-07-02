@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="=viewport" content="width=device-width, initial-scale=1.0">
+        <title> User Signup | CACLHA CWD</title>
+        <link rel="stylesheet" href="wrktr-app2.css">
+
+        
+    </head>
+    <body>
+
+        <div class="header-div2">
+            <img id="logo" src="cac.png" width="30%">
+            <!--div class="intro-text">
+
+                <p id="para1">Thank you for your interest in our Christian Workers' Development Program. 
+                    <br>We help believers develop the knowledge that fuel deeper intimacy with God,
+                    <br> and build the commitment to fulfil the Master's bidding.<br> 
+                    <br>We believe that the journey you are about to embark on   
+                    <br> will launch you into a realm of deeper and more fruitful 
+                    <br>walk with the Lord. 
+                    <br><br> As you sign up today, you can invite other friends to do the same, God bless you!<br>
+                </p>
+        
+
+            </div-->
+
+            <div class="hero-text">
+                <h1>Christian Workers Development Program</h1>
+
+                <p>
+                    Equipping believers with knowledge,
+                    conviction and spiritual discipline
+                    for effective Kingdom service.
+                </p>
+            </div>
+
+            
+
+
+            <form id="wrktr-signup-form">
+            <input class = "inputs" id="userfn" type="text" placeholder="First Name" required>
+            <input class = "inputs" id="userln" type="text" placeholder="Last Name" required>
+            <input class = "inputs" id="usersex" type="text" placeholder="Sex" required>
+            <input class = "inputs" id="userphone" type="text" placeholder="Phone Number" required>
+            <input class = "inputs" id="useremail" type="email" placeholder="Email" required>
+            <!--input class = "inputs" id="userunit" type="array" placeholder="Unit(s) in Church Workforce" required-->
+
+
+            <small id="email-error"></small>
+
+            <!-- Service Units in the Workforce -->
+            <select
+                id="unit1"
+                class="inputs"
+                
+                required
+            >
+                <option value="">
+                    Select the Primary Unit in Church Workforce where you serve (or intend to serve)
+                </option>
+            </select>
+
+            <select
+                id="unit2"
+                class="inputs"
+                
+                required
+            >
+                <option value="">
+                    Select the Secondary Unit in Church Workforce where you serve (or intend to serve)
+                </option>
+            </select>
+
+
+
+            <div class="i-container">
+                Date of Birth <br>
+                <input class = "extr-inputs1" id="userdob" type="date" required>
+            
+            </div>
+
+            <div class="i-container">
+                Date of New Birth <br>
+                <input class = "extr-inputs1" id="userdonb" type="date">
+            
+            </div>
+
+
+            <div class="i-container">
+                Date Inducted into Church Workforce <br>
+                <input class = "extr-inputs1" id="userdoind" type="date">
+            
+            </div>
+
+
+            <div class="password-container">
+                <input id="cr8-password" class="inputs" type="password" placeholder="Create Password" required>
+                <span id="toggle-password" class="eye">👁</span>
+            </div>
+
+            <div class="password-container">
+                <input id="con-password" class="inputs" type="password" placeholder="Confirm Password" required>
+                <span id="toggles-password" class="eye">👁</span>
+            </div>
+            
+            <!-- Christian Journey -->
+
+        <textarea
+            id="faith-testimony"
+            class="text-box"
+            rows="8"
+            placeholder="Tell us briefly about your Christian journey/ testimony"
+            required
+        ></textarea>
+
+
+
+            <!--input class = "inputs" id="cr8-password" type="password" placeholder="Create Password" required>
+            <input class = "inputs" id="con-password" type="password" placeholder="Confirm Password" required-->
+            
+            <!--div class="i-container">
+                Attach profile photo <br>
+                <input class = "extr-inputs2" id="userdp" type="file">
+            
+            </div-->
+            
+            <button class="submit-btn" id="signup-btn" type="submit">Sign up</button> 
+
+            </form>
+
+            <p id="submission-message"></p>
+            
+
+            <!--p id="submission-message"></p-->
+
+
+        </div>
+        
+    <script src="wrktr-signup-full.js"></script>
+
+    <footer class="page-footer">
+    <p>&copy; 2026 CACLHA Christian Workers Development Program. | Powered by RoJTech | All Rights Reserved.</p>
+</footer>
+    </body>
+</html>
